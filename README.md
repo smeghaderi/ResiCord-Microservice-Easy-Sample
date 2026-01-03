@@ -185,6 +185,15 @@ public class Example {
     <li><code>type2 - type5</code>: Examples of tasks using shared pools, time limits, and structured task execution.</li>
 </ul>
 
+<h2>Microservice Example</h2>
+<ul>
+The 3 package above of src package is a simple microservice example for showing a sample of ResiCord usecase. 
+<li><strong>ResiCord-Master:</strong> this is a master server to manage save and find-all methode on server1 and server2 with ResiCord</li>
+<li><strong>Server1:</strong> this server do insert and find-all perosn on PostgerSQL database and It is considered the <strong>main server</strong>.</li>
+<li><strong>Server2:</strong> this server do insert and find-all perosn on Oracle database and It is considered the <strong>call-back server</strong>.</li>
+In this Example the Server1 and Server2 as <strong>same project</strong> and just do insert and find-all person on different databases.
+</ul>
+
 <h2>Design Patterns & Best Practices</h2>
 <ul>
     <li><strong>Functional Interface:</strong> <code>Block&lt;T&gt;</code> for defining tasks.</li>
