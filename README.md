@@ -187,13 +187,60 @@ public class Example {
 
 <h2>Microservice Example</h2>
 <ul>
-The 3 package above of src package is a simple microservice example for showing a sample of ResiCord usecase. 
+<p>The 3 package above of src package is a simple microservice example for showing a sample of ResiCord usecase.</p> 
 <li><strong>ResiCord-Master:</strong> this is a master server to manage save and find-all methode on server1 and server2 with ResiCord</li>
 <li><strong>Server1:</strong> this server do insert and find-all perosn on PostgerSQL database and It is considered the <strong>main server</strong>.</li>
 <li><strong>Server2:</strong> this server do insert and find-all perosn on Oracle database and It is considered the <strong>call-back server</strong>.</li>
 In this Example the Server1 and Server2 as <strong>same project</strong> and just do insert and find-all person on different databases.
 </ul>
 
+<h3>Projects Configuration Explanation</h3>
+
+    
+<h4>ResiCord-Master:</h4>
+<ul>
+        
+This project have two file to configure your own config:
+<li><strong>1.application.yml:</strong>This file config the embedded application server port in Spring-Boot</li>
+    <pre><code>
+        server:
+          port: 8080
+    </code></pre>
+<li><strong>2.ApplicationConfig.class:</strong> This file config serevr1 and server2 HTTP URL path</li>
+<pre><code>
+package org.j2os.common;
+
+public interface ApplicationConfig {
+
+    String HTTP_URL_SERVER1 = "http://localhost:8081";
+    String HTTP_URL_SERVER2 = "http://localhost:8082";
+}
+    </code></pre>
+    </ul>
+    
+ <h4>Servers:</h4>
+<ul>
+  <p>The servers project only has one file to configure your own config:</p>
+  <li><strong>application.yml:</strong> This file configures the embedded application server port in Spring-Boot, configures the datasource of your own database connection, and jpa configuration.</li>
+  <pre><code>
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: amirsam
+    password: myjava123
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=server1
+    
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    open-in-view: false
+  </code></pre>
+</ul>
+
+    
 <h2>Design Patterns & Best Practices</h2>
 <ul>
     <li><strong>Functional Interface:</strong> <code>Block&lt;T&gt;</code> for defining tasks.</li>
