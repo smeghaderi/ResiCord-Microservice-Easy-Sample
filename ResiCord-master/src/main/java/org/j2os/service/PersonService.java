@@ -51,23 +51,24 @@ public class PersonService {
     }
 
     public String savePersonS1(Person person) throws Exception {
-        String url = "http://localhost:8081/person/save?name=" + person.getName();
+        String url = ApplicationConfig.HTTP_URL_SERVER1 + "/person/save?name=" + person.getName();
         return URLWebSocket.getStringContent(url);
     }
 
     public String findAllPersonS1() throws Exception {
-        String url = "http://localhost:8081/person/findAll";
+        String url = ApplicationConfig.HTTP_URL_SERVER1 + "/person/findAll";
         return URLWebSocket.getStringContent(url);
     }
 
     public String savePersonS2(Person person) throws Exception {
-        String url = "http://localhost:8082/person/save?name=" + person.getName();
+        String url = ApplicationConfig.HTTP_URL_SERVER2 + "/person/save?name=" + person.getName();
         return URLWebSocket.getStringContent(url);
 
     }
 
     public String findAllPersonS2() throws Exception {
-        String url = "http://localhost:8082/person/findAll";
+        String url = ApplicationConfig.HTTP_URL_SERVER2 + "/person/findAll";
         return URLWebSocket.getStringContent(url);
     }
 }
+
