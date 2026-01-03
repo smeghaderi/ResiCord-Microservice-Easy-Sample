@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    username: talisman
+    password: myjava123
+    url: jdbc:oracle:thin:@localhost:1521/freepdb1
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    open-in-view: false
