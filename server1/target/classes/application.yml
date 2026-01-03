@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: amirsam
+    password: myjava123
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=server1
+  #    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+    show-sql: true
+#    database-platform: org.hibernate.community.dialect.OracleLegacyDialect
+    open-in-view: false
